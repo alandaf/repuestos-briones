@@ -16,6 +16,8 @@ interface PRTDetails extends Vehicle {
   chasis: string;
   vin: string;
   sello: string;
+  ownerName?: string;
+  ownerRut?: string;
 }
 
 interface HeroProps {
@@ -74,7 +76,9 @@ export default function Hero({ onVehicleIdentified, activeVehicle }: HeroProps) 
           motor: motorNum,
           chasis: chasisNum,
           vin: '',
-          sello: 'SELLO VERDE'
+          sello: 'SELLO VERDE',
+          ownerName: data.ownerName,
+          ownerRut: data.ownerRut
         });
       } else {
         setErrorMessage(data.error || 'Patente no encontrada en el registro de plantas');
@@ -244,6 +248,8 @@ export default function Hero({ onVehicleIdentified, activeVehicle }: HeroProps) 
               <div className="divide-y divide-gray-850 bg-gray-950/50 text-xs md:text-sm">
                 {[
                   { label: 'Patente', val: prtData.plateOrVin },
+                  { label: 'Propietario', val: prtData.ownerName || 'SIN REGISTRO' },
+                  { label: 'RUT Propietario', val: prtData.ownerRut || 'SIN REGISTRO' },
                   { label: 'Tipo', val: prtData.tipo },
                   { label: 'Marca', val: prtData.brand },
                   { label: 'Modelo', val: prtData.model },

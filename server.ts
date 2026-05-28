@@ -55,37 +55,37 @@ async function startServer() {
     }
 
     // Mock Registry database
-    const vehicleRegistry: Record<string, { brand: string; model: string; year: number; engine: string }> = {
-      "ABCD12": { brand: "Hyundai", model: "Accent", year: 2018, engine: "1.4L DOHC" },
-      "XYZW99": { brand: "Toyota", model: "Hilux", year: 2022, engine: "2.8L Diésel" },
-      "AB1234": { brand: "Nissan", model: "Sentra", year: 2019, engine: "1.8L DOHC" },
-      "FP9921": { brand: "Hyundai", model: "Tucson", year: 2020, engine: "2.0L MPI" },
-      "17CHARVINEXAMPLE1": { brand: "Ford", model: "F-150", year: 2021, engine: "3.5L EcoBoost V6" },
-      "17CHARVINEXAMPLE2": { brand: "Toyota", model: "Corolla", year: 2023, engine: "1.8L Hybrid" },
+    const vehicleRegistry: Record<string, { brand: string; model: string; year: number; engine: string; ownerName?: string; ownerRut?: string }> = {
+      "ABCD12": { brand: "Hyundai", model: "Accent", year: 2018, engine: "1.4L DOHC", ownerName: "CARLOS ANDRÉS VALENZUELA S.", ownerRut: "18.392.114-K" },
+      "XYZW99": { brand: "Toyota", model: "Hilux", year: 2022, engine: "2.8L Diésel", ownerName: "CONSTRUCTORA ANDINA LTDA", ownerRut: "76.492.110-3" },
+      "AB1234": { brand: "Nissan", model: "Sentra", year: 2019, engine: "1.8L DOHC", ownerName: "MIGUEL ÁNGEL ROJAS P.", ownerRut: "15.901.882-6" },
+      "FP9921": { brand: "Hyundai", model: "Tucson", year: 2020, engine: "2.0L MPI", ownerName: "JAVIERA IGLESIAS FUENTES", ownerRut: "19.224.892-K" },
+      "17CHARVINEXAMPLE1": { brand: "Ford", model: "F-150", year: 2021, engine: "3.5L EcoBoost V6", ownerName: "AGRICOLA DEL MAIPO", ownerRut: "77.104.990-2" },
+      "17CHARVINEXAMPLE2": { brand: "Toyota", model: "Corolla", year: 2023, engine: "1.8L Hybrid", ownerName: "ROBERTO PAILLAO M.", ownerRut: "12.449.102-K" },
       
       // Exact vehicle details for user's plate TJ6828 (Year 2001 format)
-      "TJ6828": { brand: "Toyota", model: "Yaris Sport", year: 2001, engine: "1.3L VVT-i" },
-      "CPPT27": { brand: "Suzuki", model: "Celerio GA 1.0", year: 2010, engine: "1.0L K10B" },
+      "TJ6828": { brand: "Toyota", model: "Yaris Sport", year: 2001, engine: "1.3L VVT-i", ownerName: "ANDRÉS ALFONSO BRIONES M.", ownerRut: "15.821.492-9" },
+      "CPPT27": { brand: "Suzuki", model: "Celerio GA 1.0", year: 2010, engine: "1.0L K10B", ownerName: "ALAN DAF MORALES ESPINOZA", ownerRut: "17.401.992-K" },
 
       // Boostr Sandbox/Testing Plates (from api.boostr.cl/vehicle/fake/)
-      "JG5165": { brand: "Suzuki", model: "Swift", year: 2017, engine: "1.2L DOHC" },
-      "KFHD30": { brand: "Hyundai", model: "Accent", year: 2018, engine: "1.4L" },
-      "UE2083": { brand: "Toyota", model: "Corolla", year: 2021, engine: "1.8L Hybrid" },
-      "ORE044": { brand: "Chevrolet", model: "Silverado", year: 2020, engine: "5.3L V8" },
-      "AW0129": { brand: "Nissan", model: "Sentra", year: 2019, engine: "1.8L DOHC" },
-      "RRLH58": { brand: "Peugeot", model: "208", year: 2022, engine: "1.2L PureTech" },
-      "GRVF16": { brand: "Ford", model: "Ranger", year: 2021, engine: "3.2L Puma" },
-      "LPPT66": { brand: "Mitsubishi", model: "L200", year: 2020, engine: "2.4L DI-D" },
-      "BPCW69": { brand: "Kia", model: "Rio", year: 2016, engine: "1.4L DOHC" },
-      "KCYT22": { brand: "Hyundai", model: "Santa Fe", year: 2019, engine: "2.2L CRDi" },
-      "TTFB95": { brand: "Chevrolet", model: "Sail", year: 2022, engine: "1.5L DOHC" },
-      "RE1792": { brand: "Toyota", model: "RAV4", year: 2020, engine: "2.5L" },
-      "LJKG41": { brand: "Nissan", model: "Qashqai", year: 2018, engine: "2.0L" },
-      "AA3556": { brand: "Suzuki", model: "Grand Vitara", year: 2015, engine: "2.4L" },
-      "SZ2777": { brand: "Mazda", model: "CX-5", year: 2019, engine: "2.0L SkyActiv" },
-      "YR2587": { brand: "Hyundai", model: "Elantra", year: 2021, engine: "1.6L" },
-      "WW6785": { brand: "Kia", model: "Sportage", year: 2018, engine: "2.0L" },
-      "DZTD28": { brand: "Subaru", model: "Forester", year: 2017, engine: "2.5L DOHC" }
+      "JG5165": { brand: "Suzuki", model: "Swift", year: 2017, engine: "1.2L DOHC", ownerName: "PATRICIO SOTO LEIVA", ownerRut: "16.892.410-K" },
+      "KFHD30": { brand: "Hyundai", model: "Accent", year: 2018, engine: "1.4L", ownerName: "CARLA FIGUEROA PEREZ", ownerRut: "17.112.404-5" },
+      "UE2083": { brand: "Toyota", model: "Corolla", year: 2021, engine: "1.8L Hybrid", ownerName: "FRANCISCO VENEGAS M.", ownerRut: "14.992.810-3" },
+      "ORE044": { brand: "Chevrolet", model: "Silverado", year: 2020, engine: "5.3L V8", ownerName: "TRANSPORTE LOGISTICO SUR", ownerRut: "76.882.110-8" },
+      "AW0129": { brand: "Nissan", model: "Sentra", year: 2019, engine: "1.8L DOHC", ownerName: "DANIEL FLORES DIAZ", ownerRut: "18.112.994-K" },
+      "RRLH58": { brand: "Peugeot", model: "208", year: 2022, engine: "1.2L PureTech", ownerName: "CAMILA RIQUELME V.", ownerRut: "20.104.992-3" },
+      "GRVF16": { brand: "Ford", model: "Ranger", year: 2021, engine: "3.2L Puma", ownerName: "SERVICIOS FORESTALES BIOBIO", ownerRut: "77.892.400-K" },
+      "LPPT66": { brand: "Mitsubishi", model: "L200", year: 2020, engine: "2.4L DI-D", ownerName: "MARIO OYARZUN TORRES", ownerRut: "11.892.404-5" },
+      "BPCW69": { brand: "Kia", model: "Rio", year: 2016, engine: "1.4L DOHC", ownerName: "NATALIA GOMEZ TAPIA", ownerRut: "19.892.410-K" },
+      "KCYT22": { brand: "Hyundai", model: "Santa Fe", year: 2019, engine: "2.2L CRDi", ownerName: "SEBASTIAN AGUILERA H.", ownerRut: "17.492.110-6" },
+      "TTFB95": { brand: "Chevrolet", model: "Sail", year: 2022, engine: "1.5L DOHC", ownerName: "ROXANA CARMONA L.", ownerRut: "18.892.404-5" },
+      "RE1792": { brand: "Toyota", model: "RAV4", year: 2020, engine: "2.5L", ownerName: "CRISTIAN SILVA CASTRO", ownerRut: "16.492.110-3" },
+      "LJKG41": { brand: "Nissan", model: "Qashqai", year: 2018, engine: "2.0L", ownerName: "TATIANA SILVA VALENZUELA", ownerRut: "15.892.404-5" },
+      "AA3556": { brand: "Suzuki", model: "Grand Vitara", year: 2015, engine: "2.4L", ownerName: "RAUL MANRIQUEZ PAREDES", ownerRut: "13.492.110-3" },
+      "SZ2777": { brand: "Mazda", model: "CX-5", year: 2019, engine: "2.0L SkyActiv", ownerName: "CLAUDIO SANDOVAL R.", ownerRut: "14.892.404-5" },
+      "YR2587": { brand: "Hyundai", model: "Elantra", year: 2021, engine: "1.6L", ownerName: "VALENTINA PEREZ C.", ownerRut: "21.492.110-3" },
+      "WW6785": { brand: "Kia", model: "Sportage", year: 2018, engine: "2.0L", ownerName: "MARCELO PINTO LOPEZ", ownerRut: "15.892.404-5" },
+      "DZTD28": { brand: "Subaru", model: "Forester", year: 2017, engine: "2.5L DOHC", ownerName: "FELIPE CORTES DIAZ", ownerRut: "17.492.110-3" }
     };
 
     if (vehicleRegistry[identifier]) {
@@ -103,7 +103,9 @@ async function startServer() {
         brand: "Chevrolet",
         model: "Silverado",
         year: 2022,
-        engine: "5.3L Ecotec V8"
+        engine: "5.3L Ecotec V8",
+        ownerName: "DISTRIBUIDORA MAIPO LTDA",
+        ownerRut: "76.992.410-K"
       });
     } else if (identifier.length >= 4 && identifier.length <= 8) {
       // Plate fallback
@@ -112,7 +114,9 @@ async function startServer() {
         brand: "Suzuki",
         model: "Swift",
         year: 2021,
-        engine: "1.2L Dualjet"
+        engine: "1.2L Dualjet",
+        ownerName: "PROPIETARIO DEMO S.A.",
+        ownerRut: "18.892.410-K"
       });
     }
 
