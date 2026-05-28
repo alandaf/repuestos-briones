@@ -28,8 +28,31 @@ async function startServer() {
   }
 
   // API Route for Vehicle Data
-  app.get("/api/vehicle/:identifier", (req, res) => {
+  app.get("/api/vehicle/:identifier", async (req, res) => {
     const identifier = req.params.identifier.toUpperCase().replace(/[- ]/g, "");
+    const boostrApiKey = process.env.VEHICLE_API_KEY;
+
+    // Try fetching from Boostr API if configured
+    if (boostrApiKey && boostrApiKey !== "MY_VEHICLE_API_KEY" && boostrApiKey !== "") {
+      try {
+        const response = await fetch(`https://api.boostr.cl/vehicle/${identifier}.json?apikey=${boostrApiKey}`);
+        if (response.ok) {
+          const result = await response.json();
+          if (result && result.status === "success" && result.data) {
+            const d = result.data;
+            return res.json({
+              plateOrVin: identifier,
+              brand: d.brand || d.marca || "Desconocido",
+              model: d.model || d.modelo || "Desconocido",
+              year: Number(d.year || d.anio || d.año || 2020),
+              engine: d.engine || d.motor || "N/A"
+            });
+          }
+        }
+      } catch (err) {
+        console.error("Boostr API error, falling back to mock database:", err);
+      }
+    }
 
     // Mock Registry database
     const vehicleRegistry: Record<string, { brand: string; model: string; year: number; engine: string }> = {
