@@ -61,7 +61,30 @@ async function startServer() {
       "AB1234": { brand: "Nissan", model: "Sentra", year: 2019, engine: "1.8L DOHC" },
       "FP9921": { brand: "Hyundai", model: "Tucson", year: 2020, engine: "2.0L MPI" },
       "17CHARVINEXAMPLE1": { brand: "Ford", model: "F-150", year: 2021, engine: "3.5L EcoBoost V6" },
-      "17CHARVINEXAMPLE2": { brand: "Toyota", model: "Corolla", year: 2023, engine: "1.8L Hybrid" }
+      "17CHARVINEXAMPLE2": { brand: "Toyota", model: "Corolla", year: 2023, engine: "1.8L Hybrid" },
+      
+      // Exact vehicle details for user's plate TJ6828 (Year 2001 format)
+      "TJ6828": { brand: "Toyota", model: "Yaris Sport", year: 2001, engine: "1.3L VVT-i" },
+
+      // Boostr Sandbox/Testing Plates (from api.boostr.cl/vehicle/fake/)
+      "JG5165": { brand: "Suzuki", model: "Swift", year: 2017, engine: "1.2L DOHC" },
+      "KFHD30": { brand: "Hyundai", model: "Accent", year: 2018, engine: "1.4L" },
+      "UE2083": { brand: "Toyota", model: "Corolla", year: 2021, engine: "1.8L Hybrid" },
+      "ORE044": { brand: "Chevrolet", model: "Silverado", year: 2020, engine: "5.3L V8" },
+      "AW0129": { brand: "Nissan", model: "Sentra", year: 2019, engine: "1.8L DOHC" },
+      "RRLH58": { brand: "Peugeot", model: "208", year: 2022, engine: "1.2L PureTech" },
+      "GRVF16": { brand: "Ford", model: "Ranger", year: 2021, engine: "3.2L Puma" },
+      "LPPT66": { brand: "Mitsubishi", model: "L200", year: 2020, engine: "2.4L DI-D" },
+      "BPCW69": { brand: "Kia", model: "Rio", year: 2016, engine: "1.4L DOHC" },
+      "KCYT22": { brand: "Hyundai", model: "Santa Fe", year: 2019, engine: "2.2L CRDi" },
+      "TTFB95": { brand: "Chevrolet", model: "Sail", year: 2022, engine: "1.5L DOHC" },
+      "RE1792": { brand: "Toyota", model: "RAV4", year: 2020, engine: "2.5L" },
+      "LJKG41": { brand: "Nissan", model: "Qashqai", year: 2018, engine: "2.0L" },
+      "AA3556": { brand: "Suzuki", model: "Grand Vitara", year: 2015, engine: "2.4L" },
+      "SZ2777": { brand: "Mazda", model: "CX-5", year: 2019, engine: "2.0L SkyActiv" },
+      "YR2587": { brand: "Hyundai", model: "Elantra", year: 2021, engine: "1.6L" },
+      "WW6785": { brand: "Kia", model: "Sportage", year: 2018, engine: "2.0L" },
+      "DZTD28": { brand: "Subaru", model: "Forester", year: 2017, engine: "2.5L DOHC" }
     };
 
     if (vehicleRegistry[identifier]) {
