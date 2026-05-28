@@ -1,0 +1,6 @@
+{
+  "name": "Precision Parts",
+  "description": "An e-commerce platform for precise automotive spare parts identification and B2B wholesale purchasing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
