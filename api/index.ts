@@ -56,6 +56,7 @@ app.get("/api/vehicle/:identifier", async (req, res) => {
     
     // Exact vehicle details for user's plate TJ6828 (Year 2001 format)
     "TJ6828": { brand: "Toyota", model: "Yaris Sport", year: 2001, engine: "1.3L VVT-i" },
+    "CPPT27": { brand: "Suzuki", model: "Celerio GA 1.0", year: 2010, engine: "1.0L K10B" },
 
     // Boostr Sandbox/Testing Plates (from api.boostr.cl/vehicle/fake/)
     "JG5165": { brand: "Suzuki", model: "Swift", year: 2017, engine: "1.2L DOHC" },
